@@ -16,12 +16,19 @@ I’m passionate about solving real-world problems at the intersection of **AI, 
 
 ## 📂 Projects Overview
 
+### 🔬 Research Projects 
+| Project | Topic | Skills & Tools | Publication / Data |
+|---------|-------|----------------|--------------------|
+| [Wearable Anomaly Detection](projects/wearable-anomaly/README.md) | Detect anomalies in Apple Watch HR + motion data under improper wearing, humidity, unstable networks | PyTorch, Autoencoder, GPT-2, PCA, GAF | Private |
+| [Fitbit Stress & Sleep Study](projects/fitbit-stress/README.md) | Modeling the link between stress, HR, and sleep | Python, Mixed-Effects, EBM, Scikit-learn | Public |
+| [Trust & Telehealth Adoption](projects/trust-xai/README.md) | Trust in AI explanations + telehealth adoption analysis (HINTS dataset) | Ordinal logistic regression, Mediation analysis | Public |
+| [PneuNet Diagnostic AI](projects/pneunet/README.md) | Pneumonia detection from 30K+ X-rays using ViT + ResNet | PyTorch, Vision Transformer, ResNet | Public |
+
+---
+
+### 💻 Individual Projects 
 | Project | Topic | Skills & Tools | Data Link |
 |---------|-------|----------------|-----------|
-| [Wearable Anomaly Detection](projects/wearable-anomaly/README.md) | Detect anomalies in Apple Watch HR + motion data under improper wearing, humidity, and unstable networks | PyTorch, Autoencoder, GPT-2, PCA, GAF | Private|
-| [Fitbit Stress & Sleep Study](projects/fitbit-stress/README.md) | Modeling the link between stress, HR, and sleep | Python, Mixed-Effects, EBM, Scikit-learn | Public |
-| [Trust & Telehealth Adoption](projects/trust-xai/README.md) | Trust in AI explanations + telehealth adoption analysis (HINTS dataset) | Ordinal logistic regression, Mediation analysis | Public (HINTS 6) |
-| [PneuNet Diagnostic AI](projects/pneunet/README.md) | Pneumonia detection from 30K+ X-rays using ViT + ResNet | PyTorch, Vision Transformer, ResNet | Public medical X-ray datasets |
 | [Multimodal Retrieval System](projects/multimodal-search/README.md) | Dual-tower CNN + Transformer for cross-modal search | FAISS, Triton, PyTorch | Synthetic demo |
 | [RAG with LlamaIndex](projects/rag-pipeline/README.md) | RAG pipeline with Cohere re-rankers | LlamaIndex, Vector DB, Cohere API | Demo |
 | [A/B Testing Framework](projects/ab-testing/README.md) | User engagement optimization with robust experiment design | Python, SQL, Causal inference | Simulated |
