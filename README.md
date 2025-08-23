@@ -57,3 +57,15 @@ I’m passionate about solving real-world problems at the intersection of **AI, 
 - Mixed-effects modeling accounted for individual variability.  
 - Built Explainable Boosting Machine (EBM) → reduced stress prediction MSE by 10%.  
 [Read More](projects/fitbit-stress/README.md)
+
+---
+
+### 🤝 Trust, Explainability & Telehealth
+*Evaluated user trust in Apple Watch recommendations using survey data collected by me and explored the relationship between the use of wearables and telehealth adoption using the HINTS 6 dataset.*  
+- Designed and conducted a survey to evaluate the usability, explainability, and data visualization in wearable health monitoring.  
+- Secondary analysis on HINT6 dataset: wearable use positively linked to telehealth adoption among older adults.  
+[Read More](projects/trust-xai/README.md)
+
+---
+
+
