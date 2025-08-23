@@ -11,3 +11,42 @@ This portfolio is a curated selection of my research projects and applied data s
 If you're a recruiter, teammate, or fellow data enthusiast, feel free to explore these projects and reach out if you'd like to collaborate or chat about any of these ideas!  
 I’m passionate about solving real-world problems at the intersection of **AI, healthcare data, and applied machine learning** through thoughtful analysis and scalable models.  
 👉 [Connect with me on LinkedIn](https://www.linkedin.com/in/ruijingw/) · [Google Scholar](https://scholar.google.com/citations?user=26WzQFgAAAAJ&hl=en)
+
+---
+
+## 📂 Projects Overview
+
+| Project | Topic | Skills & Tools | Data Link |
+|---------|-------|----------------|-----------|
+| [Wearable Anomaly Detection](projects/wearable-anomaly/README.md) | Detect anomalies in Apple Watch HR + motion data under improper wearing, humidity, and unstable networks | PyTorch, Autoencoder, GPT-2, PCA, GAF | Private|
+| [Fitbit Stress & Sleep Study](projects/fitbit-stress/README.md) | Modeling the link between stress, HR, and sleep | Python, Mixed-Effects, EBM, Scikit-learn | Public |
+| [Trust & Telehealth Adoption](projects/trust-xai/README.md) | Trust in AI explanations + telehealth adoption analysis (HINTS dataset) | Ordinal logistic regression, Mediation analysis | Public (HINTS 6) |
+| [PneuNet Diagnostic AI](projects/pneunet/README.md) | Pneumonia detection from 30K+ X-rays using ViT + ResNet | PyTorch, Vision Transformer, ResNet | Public medical X-ray datasets |
+| [Multimodal Retrieval System](projects/multimodal-search/README.md) | Dual-tower CNN + Transformer for cross-modal search | FAISS, Triton, PyTorch | Synthetic demo |
+| [RAG with LlamaIndex](projects/rag-pipeline/README.md) | RAG pipeline with Cohere re-rankers | LlamaIndex, Vector DB, Cohere API | Demo |
+| [A/B Testing Framework](projects/ab-testing/README.md) | User engagement optimization with robust experiment design | Python, SQL, Causal inference | Simulated |
+| [Movie Recommender Systems](projects/recommender-systems/README.md) | DeepFM & LightGCN for large-scale movie data | PyTorch, Spark, Pandas | Amazon dataset |
+
+---
+
+## 🛠 Tools & Techniques
+`Python` · `PyTorch` · `TensorFlow` · `Scikit-Learn` · `SQL` · `R`  
+`Mixed-Effects Models` · `Causal Inference` · `A/B Testing` · `Recommenders`  
+`Time Series Analysis` · `LLMs` · `Transformers` · `Autoencoders`  
+`Tableau` · `Power BI` · `Matplotlib` · `Seaborn`
+
+---
+
+## 🌟 Project Highlights
+
+### ⌚ Wearable Data Integrity & Anomaly Detection
+*Collected and analyzed 200K+ Apple Watch datapoints across conditions (improper wearing, humidity, unstable networks).*
+- Built autoencoder, CNN, and GPT-2 embedding pipelines.
+
+---
+
+### 💤 Fitbit Stress & Sleep Signal Analysis
+*Explored relationship between stress, heart rate, and sleep in ICU residents.*  
+- Mixed-effects modeling accounted for individual variability.  
+- Built Explainable Boosting Machine (EBM) → reduced stress prediction MSE by 10%.  
+[Read More](projects/fitbit-stress/README.md)
