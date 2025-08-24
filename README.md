@@ -17,6 +17,7 @@ I’m passionate about solving real-world problems at the intersection of **AI, 
 ## 📂 Projects Overview
 
 ### 🔬 Research Projects 
+These projects were conducted as part of my PhD research and collaborations. They resulted in peer-reviewed publications and focus on wearable health monitoring, anomaly detection, and AI explainability.
 | Project | Topic | Skills & Tools | Publication / Data |
 |---------|-------|----------------|--------------------|
 | [Wearable Anomaly Detection](projects/wearable-anomaly/README.md) | Detect anomalies in Apple Watch HR + motion data under improper wearing, elevated humidity, unstable network conditions | PyTorch, Autoencoder, GPT-2, PCA, GAF | Private |
@@ -27,6 +28,7 @@ I’m passionate about solving real-world problems at the intersection of **AI, 
 ---
 
 ### 💻 Individual Projects 
+These projects were done independently to explore new tools and techniques in machine learning, natural language processing, and data science. They demonstrate my hands-on skills and interest in continuous learning.
 | Project | Topic | Skills & Tools | Data Link |
 |---------|-------|----------------|-----------|
 | [Multimodal Retrieval System](projects/multimodal-search/README.md) | Dual-tower CNN + Transformer for cross-modal search | FAISS, Triton, PyTorch | Synthetic demo |
