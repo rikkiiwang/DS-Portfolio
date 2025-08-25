@@ -43,12 +43,12 @@ Together, these studies highlight how **human-related, environmental-related, an
 
 <table>
 <tr>
-<td><img src="Figures/hr_raw.png" width="350"/><br><em>(a) HR data, normal condition</em></td>
-<td><img src="Figures/hr_gaf.png" width="350"/><br><em>(a) HR GAF image, normal condition</em></td>
+<td><img src="Figures/hr_normal.png" width="450"/><br><em>(a) HR data, normal condition</em></td>
+<td><img src="Figures/hr_gaf_normal.png" width="350"/><br><em>(a) HR GAF image, normal condition</em></td>
 </tr>
 <tr>
-<td><img src="Figures/hr_humidity.png" width="350"/><br><em>(b) HR data, elevated humidity</em></td>
-<td><img src="Figures/hr_humidity_gaf.png" width="350"/><br><em>(b) HR GAF image, humidity</em></td>
+<td><img src="Figures/hr_humidity.png" width="450"/><br><em>(b) HR data, elevated humidity</em></td>
+<td><img src="Figures/hr_gaf_humidity.png" width="350"/><br><em>(b) HR GAF image, elevated humidity</em></td>
 </tr>
 </table>
 
@@ -59,10 +59,16 @@ Together, these studies highlight how **human-related, environmental-related, an
 - PCA distilled high-dimensional motion into its **principal components**, ensuring:  
   - More efficient computation  
   - Balanced representation between motion and heart rate  
-- Decision rationale: literature on multivariate time series anomaly detection suggests PCA helps **avoid bias toward high-variance signals**.  
-
-- <img src="Figures/pca_motion.png" alt="PCA Motion Reduction" width="450"/>
-
+<table>
+<tr>
+<td><img src="Figures/motion_normal.png" width="450"/><br><em>(a) HR data, normal condition</em></td>
+<td><img src="Figures/motion_gaf_normal.png" width="350"/><br><em>(a) HR GAF image, normal condition</em></td>
+</tr>
+<tr>
+<td><img src="Figures/motion_humidity.png" width="450"/><br><em>(b) HR data, elevated humidity</em></td>
+<td><img src="Figures/motion_gaf_humidity.png" width="350"/><br><em>(b) HR GAF image, elevated humidity</em></td>
+</tr>
+</table>
 ---
 
 #### 3. Anomaly Identification Using Autoencoder
