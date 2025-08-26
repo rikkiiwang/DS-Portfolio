@@ -27,11 +27,11 @@ This study contributes by analyzing long-term HR data in naturalistic ICU settin
 📈 Example visualization:  
 
 <p align="center">
-  <img src="Figures/raw_HR_example.png" alt="Raw heart rate data before surveys" width="400"/>
+  <img src="Figures/raw_HR_example.png" alt="Raw heart rate data before surveys" width="600"/>
   <br>
-  <em>Figure 1. Raw heart rate before midday (stress=3.0) and evening (stress=2.0) surveys.</em>
+  <em>Figure 1. Raw heart rate before midday (stress=3.0) surveys.</em>
 
-  <img src="Figures/Comparison of heart rate pattern.png" alt="Heart rate pattern" width="600"/>
+  <img src="Figures/Comparison of heart rate patterns.png" alt="Heart rate pattern" width="800"/>
   <br>
   <em>Figure 2. Comparison of heart rate patterns between midday and end-of-day surveys for one participant.</em>
 </p>
@@ -100,6 +100,25 @@ Table 4. Correlations between daily stressors and stress level changes
 - Accounted for repeated measures with random intercepts per participant.  
 - Found **significant association** between self-reported stress and HR (p=0.03).  
 - Highlighted **inter-individual variability** in baseline HR and stress responses.  
+
+Table 5. Results of the linear mixed model on the influence of stress level and survey type on mean heart rate (part 1)
+| Model                  | Dependent variable | Mean heart rate |
+| ---------------------- | ------------------ | --------------- |
+| Number of observations | Method             | REML            |
+| Number of groups       | Scale              | 61.99           |
+| Minimum group size     | Log-likelihood     | –5023.08        |
+| Maximum group size     | Converged          | Yes             |
+| Mean group size        | N/A                | —               |
+
+Table 6. Results of the linear mixed model on the influence of stress level and survey type on mean heart rate (part 2)
+| Variable                                   | Coefficient | SE   | z     | P value | \[0.025, 0.975] |
+| ------------------------------------------ | ----------- | ---- | ----- | ------- | --------------- |
+| Intercept                                  | 80.75       | 1.20 | 67.09 | <.001   | 78.41 – 83.13   |
+| Survey\_Type \[end-of-day]                 | -0.64       | 0.47 | -1.36 | .17     | -1.57 – 0.28    |
+| Stress\_Level                              | 0.33        | 0.15 | 1.28  | .03     | 0.03 – 0.63     |
+| Group heart rate variance                  | 56.31       | 1.58 | —     | —       | —               |
+| Group heart rate × Survey\_Type covariance | -0.35       | 0.47 | —     | —       | —               |
+| Survey\_Type \[end-of-day] variance        | 1.67        | 0.26 | —     | —       | —               |
 
 <p align="center">
   <img src="Figures/random_intercepts_hist.png" alt="Random intercepts distribution" width="500"/>
