@@ -21,8 +21,8 @@ These projects were conducted as part of my PhD research and collaborations. The
 | Project | Topic | Skills & Tools | Publication / Data |
 |---------|-------|----------------|--------------------|
 | [Wearable Anomaly Detection](./01-wearable-anomaly/README.md) | Detect anomalies in Apple Watch HR + motion data under improper wearing, elevated humidity, unstable network conditions | PyTorch, Autoencoder, GPT-2, PCA, GAF | Private |
-| [Fitbit Stress & Sleep Study](projects/fitbit-stress/README.md) | Modeling the link between stress, HR, and sleep | Python, Mixed-Effects, EBM, Scikit-learn | Public |
-| [Trust & Telehealth Adoption](projects/trust-xai/README.md) | Trust in AI explanations + telehealth adoption analysis (HINTS dataset) | Ordinal logistic regression, Mediation analysis | Public |
+| [Fitbit Stress & Sleep Study](projects/02-fitbit-stress/README.md) | Modeling the link between stress, HR, and sleep | Python, Mixed-Effects, EBM, Scikit-learn | Public |
+| [Trust & Telehealth Adoption](projects/03-trust-xai/README.md) | Trust in AI explanations + telehealth adoption analysis (HINTS dataset) | Ordinal logistic regression, Mediation analysis | Public |
 | [PneuNet Diagnostic AI](projects/pneunet/README.md) | Pneumonia detection from 30K+ X-rays using ViT + ResNet | PyTorch, Vision Transformer, ResNet | Public |
 
 ---
