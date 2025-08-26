@@ -2,7 +2,7 @@
 This project investigates how real-world factors affect the integrity of wearable health data and develops anomaly detection frameworks to identify data compromises.  
 We designed two sequential experiments:  
 1. **Experiment 1 (IDETC-CIE 2024):** Focused on human-related (improper wearing) and environmental-related (humidity) factors. Introduced a Gramian Angular Field (GAF)-based anomaly detection framework.  
-2. **Experiment 2 (IEEE):** Extended to include a technical factor (unstable network), with more participants and more data collected. Compared a hybrid autoencoder model against an LLM-based GPT-2 embedding pipeline.  
+2. **Experiment 2 (IEEE Computational Intelligence Magazine):** Extended to include a technical factor (unstable network), with more participants and more data collected. Compared a hybrid autoencoder model against an LLM-based GPT-2 embedding pipeline.  
 
 Together, these studies highlight how **human-related, environmental-related, and technical contexts** can undermine wearable device data quality — and how anomaly detection models can safeguard health monitoring.
 
