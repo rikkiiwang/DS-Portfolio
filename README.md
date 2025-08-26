@@ -49,7 +49,7 @@ These projects were done independently to explore new tools and techniques in ma
 ## 🌟 Project Highlights
 
 ### ⌚ Wearable Data Integrity & Anomaly Detection
-*Collected and analyzed 200K+ Apple Watch datapoints across conditions (improper wearing, humidity, unstable networks).*
+*Collected and analyzed 200K+ Apple Watch datapoints across different conditions (improper wearing, elevated humidity, unstable networks).*
 - Built autoencoder, CNN, and GPT-2 embedding pipelines.
 
 ---
@@ -58,7 +58,7 @@ These projects were done independently to explore new tools and techniques in ma
 *Explored relationship between stress, heart rate, and sleep in ICU residents.*  
 - Mixed-effects modeling accounted for individual variability.  
 - Built Explainable Boosting Machine (EBM) → reduced stress prediction MSE by 10%.  
-[Read More](projects/fitbit-stress/README.md)
+[Read More](./02-fitbit-stress/README.md)
 
 ---
 
@@ -66,7 +66,7 @@ These projects were done independently to explore new tools and techniques in ma
 *Evaluated user trust in Apple Watch recommendations using survey data collected by me and explored the relationship between the use of wearables and telehealth adoption using the HINTS 6 dataset.*  
 - Designed and conducted a survey to evaluate the usability, explainability, and data visualization in wearable health monitoring.  
 - Secondary analysis on HINT6 dataset: wearable use positively linked to telehealth adoption among older adults.  
-[Read More](projects/trust-xai/README.md)
+[Read More](./03-trust-xai/README.md)
 
 ---
 
