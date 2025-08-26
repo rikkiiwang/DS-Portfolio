@@ -18,7 +18,7 @@ I’m passionate about solving real-world problems at the intersection of **AI, 
 
 ### 🔬 Research Projects 
 These projects were conducted as part of my PhD research and collaborations. They resulted in peer-reviewed publications and focus on wearable health monitoring, anomaly detection, and AI explainability.
-| Project | Topic | Skills & Tools | Publication / Data |
+| Project | Topic | Skills & Tools | Data |
 |---------|-------|----------------|--------------------|
 | [Wearable Anomaly Detection](./01-wearable-anomaly/README.md) | Detect anomalies in Apple Watch HR + motion data under improper wearing, elevated humidity, unstable network conditions | PyTorch, Autoencoder, GPT-2, PCA, GAF | Private |
 | [Fitbit Stress & Sleep Study](./02-fitbit-stress/README.md) | Modeling the link between stress, HR, and sleep | Python, Mixed-Effects, EBM, Scikit-learn | Public |
