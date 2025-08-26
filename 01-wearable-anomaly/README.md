@@ -27,9 +27,9 @@ Together, these studies highlight how **human-related, environmental-related, an
     4. **Resting (5 min):** Another cool-down period.  
     5. **Test Condition 2 (5 min):** The second factor is not tested in Step 3 (randomized order).
   <p align="center">
-  <img src="Figures/Flowchart.png" alt="Experiment 1 Procedure" style="width:50%;"/>
+  <img src="Figures/Flowchart.png" alt="Experiment 1 Procedure" style="width:40%;"/>
   <br>
-  <em>Figure: Experiment 1 Procedure Flowchart</em>
+  <em>Figure 1: Experiment 1 Procedure Flowchart</em>
   </p>
   
 ### ⚙️ Proposed Multi-channel Framework (Experiment 1)
@@ -51,6 +51,7 @@ Together, these studies highlight how **human-related, environmental-related, an
 <td><img src="Figures/hr_gaf_humidity.png" width="350"/><br><em>(b2) HR GAF image, elevated humidity</em></td>
 </tr>
 </table>
+<em>Figure 2: GAF Transformation of Heart Rate Data</em>
 
 
 
@@ -69,6 +70,7 @@ Together, these studies highlight how **human-related, environmental-related, an
 <td><img src="Figures/motion_gaf_humidity.png" width="350"/><br><em>(d2) Motion GAF image, elevated humidity</em></td>
 </tr>
 </table>
+<em>Figure 3: GAF Transformation of Motion Data</em>
 
 
 #### 3. Anomaly Identification Using Autoencoder
@@ -117,7 +119,7 @@ By training only on normal patterns, the model specialized in reconstructing bas
   <p align="center">
   <img src="Figures/Experiment2_Flowchart.png" alt="Experiment 2 Procedure" style="width:40%;"/>
   <br>
-  <em>Figure: Experiment 2 Procedure Flowchart</em>
+  <em>Figure 4: Experiment 2 Procedure Flowchart</em>
   </p>
 
 To enrich health-related signals and avoid overly static data, participants performed **guided low-intensity rehab exercises** (e.g., marching, side taps) during sessions. This setup aligned with clinical literature on rehabilitation exercises and ensured natural variability in heart rate and motion while keeping risk minimal.
@@ -135,13 +137,13 @@ To enrich health-related signals and avoid overly static data, participants perf
 <p align="center">
   <img src="Figures/exp2_training_segment.png" alt="Training Data Segment: Baseline HR and Motion" width="600"/>
   <br>
-  <em>Fig. X. Example of Training Data Segment: Normalized heart rate and motion magnitude during baseline.</em>
+  <em>Figure 5. Example of Training Data Segment: Normalized heart rate and motion magnitude during baseline.</em>
 </p>
 
 <p align="center">
   <img src="Figures/exp2_testing_segment.png" alt="Testing Data Segment: Controlled Session HR and Motion" width="600"/>
   <br>
-  <em>Fig. Y. Example of Testing Data Segment: Normalized heart rate and motion magnitude during controlled conditions.</em>
+  <em>Figure 6. Example of Testing Data Segment: Normalized heart rate and motion magnitude during controlled conditions.</em>
 </p>
  
 #### 3. Models
