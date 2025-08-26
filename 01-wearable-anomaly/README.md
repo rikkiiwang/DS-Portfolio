@@ -115,9 +115,9 @@ By training only on normal patterns, the model specialized in reconstructing bas
   4. **Resting (control)**  
   5. **Elevated Humidity** (room humidity raised to ~65%)
   <p align="center">
-  <img src="Figures/Experiment2_flowchart.png" alt="Experiment 2 Procedure" style="width:50%;"/>
+  <img src="Figures/Experiment2_Flowchart.png" alt="Experiment 2 Procedure" style="width:40%;"/>
   <br>
-  <em>Figure: Experiment 1 Procedure Flowchart</em>
+  <em>Figure: Experiment 2 Procedure Flowchart</em>
   </p>
 
 To enrich health-related signals and avoid overly static data, participants performed **guided low-intensity rehab exercises** (e.g., marching, side taps) during sessions. This setup aligned with clinical literature on rehabilitation exercises and ensured natural variability in heart rate and motion while keeping risk minimal.
@@ -127,12 +127,22 @@ To enrich health-related signals and avoid overly static data, participants perf
 - **Feature Engineering:** Motion magnitude = Euclidean norm of x, y, z acceleration.  
 - **Normalization:** Min-Max scaling applied to [0,1].  
 - **Segmentation:**  
-  - Training set: baseline data segmented into 30 time steps.  
-  - Testing set: each 5-min session adjusted to same length (padding/truncation).
+  - Training set: baseline data segmented into a fixed-length window of 30 time steps.  
+  - Testing set: each 5-min session adjusted to the same length (padding/truncation).
  
-- **Frameworks Compared:**  
-  1. **Hybrid Autoencoder** (CNN + LSTM + Attention).  
-  2. **LLM-based GPT-2 Pipeline**: PCA → tokenization → GPT-2 embeddings → anomaly scoring.
+📊 Examples of normalized data segments:
+
+<p align="center">
+  <img src="Figures/exp2_training_segment.png" alt="Training Data Segment: Baseline HR and Motion" width="600"/>
+  <br>
+  <em>Fig. X. Example of Training Data Segment: Normalized heart rate and motion magnitude during baseline.</em>
+</p>
+
+<p align="center">
+  <img src="Figures/exp2_testing_segment.png" alt="Testing Data Segment: Controlled Session HR and Motion" width="600"/>
+  <br>
+  <em>Fig. Y. Example of Testing Data Segment: Normalized heart rate and motion magnitude during controlled conditions.</em>
+</p>
  
 #### 3. Models
 
