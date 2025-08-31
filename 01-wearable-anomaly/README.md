@@ -13,21 +13,68 @@ This project was motivated by such real-world challenges. Our goal was to improv
 
 
 
-## 🧪 Metrics & Experiment
-Evaluation Metric: Reconstruction error (how far data deviates from expected normal patterns).
-Baseline Model: KitNet, a lightweight neural-network ensemble originally developed for network intrusion detection, repurposed here for wearable data
-. KitNet served as the baseline anomaly detector.
-Experiment Setup: Heart rate and motion data were collected under baseline (normal wear) and test conditions (improper wearing, unstable network, high humidity). 
-Key Result: KitNet detected anomalies but struggled with subtle changes and variability across users, exposing a performance gap that motivated advanced models.
+## 🧪 Benchmark, Metrics, and Experiment Setup
+### Evaluation Metric  
+- **Reconstruction Error:** Difference between input data and model reconstruction.  
+- Larger errors = stronger deviation from expected "normal" patterns.  
+- Used as the primary anomaly detection metric.
+
+### Baseline Model  
+- **KitNet**: Lightweight ensemble of autoencoders, originally for network intrusion detection.  
+- Strengths: Fast, unsupervised, suitable for small devices.  
+- Limitations: Detected obvious anomalies but struggled with subtle changes and user variability, exposing a performance gap.  
+
+### Experiment Setup  
+#### First Experiment (Pilot)  
+- **Session Length:** 25 minutes  
+- **Conditions:** Normal Wearing, Resting (control), Improper Wearing (loose strap)  
+- **Limitation:** Small training dataset → led to expansion in the second experiment.  
+
+#### Second Experiment (Expanded Study)  
+- **Baseline Condition (8 hours):**  
+  - Participants wore Apple Watches during daily activities (10 AM – 6 PM).  
+  - Rich dataset of *normal* behavior, used for model training.  
+- **Controlled In-Lab Condition (25 minutes):**  
+  Each participant completed **five 5-minute sessions** including improper wearing, unstable network, elevated humidity adn two resting sessions (control).
+   <p align="center">
+   <img src="Figures/Experiment2_Flowchart.png" alt="Experiment 2 Procedure" style="width:25%;"/>
+   <br>
+   <em>Figure 4: Second Experiment Procedure Flowchart</em>
+   </p>
+
 
 ## 📊 Data Processing & Feature Engineering
 The raw dataset combined Apple Watch heart rate (7–8s intervals) and motion data (1s intervals). Steps included: 
 - Synchronization of heart rate and motion timestamps.
 - Interpolation to fill gaps in heart rate data.
 - Feature Engineering: motion magnitude (via Euclidean norm), normalization (Min-Max scaling), and segmentation into time windows for training.
-- Dimensionality Reduction: For complex inputs, Principal Component Analysis (PCA) was applied to balance motion and heart rate signals
+- Dimensionality Reduction
+  - Challenge: Motion data had 3 axes (x, y, z) while heart rate had only 1 channel.  
+    - Initial autoencoder tests showed poor results — the model overfit to motion data and ignored subtle heart rate variations.  
+  - Diagnosis: The imbalance of **3 motion features vs. 1 heart rate feature** skewed the learning process.  
+  - Solution: Apply **Principal Component Analysis (PCA)** on the motion data.  
+    - Reduced the 3D motion signals into 1 principal component capturing the dominant variance.  
+    - Balanced the input space into **two channels.  
+  - Impact: 
+    - Eliminated redundancy and noise from motion data.  
+    - Ensured equal weighting of motion and heart rate inputs.  
+    - Improved anomaly detection performance in the autoencoder and downstream LLM experiments.
+   
+Examples of normalized data segments:
 
-## Model Development 
+<p align="center">
+  <img src="Figures/exp2_training_segment.png" alt="Training Data Segment: Baseline HR and Motion" width="600"/>
+  <br>
+  <em>Figure 5. Example of Training Data Segment: Normalized heart rate and motion magnitude during baseline.</em>
+</p>
+
+<p align="center">
+  <img src="Figures/exp2_testing_segment.png" alt="Testing Data Segment: Controlled Session HR and Motion" width="600"/>
+  <br>
+  <em>Figure 6. Example of Testing Data Segment: Normalized heart rate and motion magnitude during controlled conditions.</em>
+</p>
+ 
+## Model Development    
 We tested and advanced multiple models:
 | **Model**                                         | **Approach**                                                                | **Why Chosen**                                             | **Performance / Insights**                                                         |
 | ------------------------------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------- |
@@ -73,13 +120,42 @@ Data Transformation Using GAF
 </table>
 <em>Figure 3: GAF Transformation of Motion Data</em>
 
+Threshold Calculation (L2 Norm + MAD) of Autoencoder with GAF
+- **Why L2 norm?** Compared to MSE/MAE, the Euclidean distance better captured anomaly magnitude in the feature space.  
+- **Why MAD?** Median Absolute Deviation is robust to outliers, yielding **stable thresholds** for noisy wearable data.  
+- Final decision rule:  
+  - Compute reconstruction error using L2 norm.  
+  - Flag anomaly if > (median + k × MAD).
+This framework combined **GAF (temporal-preserving representation)** + **PCA (dimensionality reduction)** + **Autoencoder (feature learning)** + **Robust thresholding (L2 + MAD)**.  
+By training only on normal patterns, the model specialized in reconstructing baseline patterns, making deviation due to improper wearing or humidity easy to detect.
+
 Intro of convolutional autoencoder
+
+Autoencoder with attention structure: (draw this in a flowchart)
+**Architecture highlights:**  in flowchart
+- Input: (224 × 224 × 2) images (HR + motion)  
+- Encoder: 3 convolutional layers (32 filters, 3×3 kernel, ReLU activation)  
+- Downsampling: MaxPooling (2×2)  
+- Bottleneck: latent representation (forces compact feature learning)  
+- Decoder: Upsampling layers + final Conv layer with sigmoid activation  
+- Output: reconstructed image  
  
 Challenge: Small, noisy datasets from real-world wearables made models prone to overfitting.
 Solution: Hybrid autoencoder with attention improved generalization, while PCA ensured balanced feature inputs.
 
 ---
 
+## Insights & Future Plans
+
+This project highlights:
+- User Trust: False alerts reduce confidence in wearables; anomaly detection can filter errors before they reach the user.
+- Healthcare Applications: Reliable anomaly detection enables clinicians to trust wearable data for remote monitoring, potentially reducing hospital visits and improving early detection.
+- Scalability: Lightweight methods like KitNet are ideal for devices with limited computation, while advanced autoencoders can run on the cloud for richer analytics.
+
+Future Plans:
+- Integrating explainable AI (XAI) to show why an anomaly was flagged (improving transparency).
+- Expanding experiments to include multi-day, real-world data for greater robustness.
+- Exploring LLM–Autoencoder hybrid models for interpretable, high-accuracy anomaly detection in wearable health systems.
 
   
 
@@ -91,70 +167,15 @@ Solution: Hybrid autoencoder with attention improved generalization, while PCA e
 
 
 
-**Architecture highlights:**  in flowchart
-- Input: (224 × 224 × 2) images (HR + motion)  
-- Encoder: 3 convolutional layers (32 filters, 3×3 kernel, ReLU activation)  
-- Downsampling: MaxPooling (2×2)  
-- Bottleneck: latent representation (forces compact feature learning)  
-- Decoder: Upsampling layers + final Conv layer with sigmoid activation  
-- Output: reconstructed image  
 
 
-#### 4. Threshold Calculation (L2 Norm + MAD)
-- **Why L2 norm?** Compared to MSE/MAE, the Euclidean distance better captured anomaly magnitude in the feature space.  
-- **Why MAD?** Median Absolute Deviation is robust to outliers, yielding **stable thresholds** for noisy wearable data.  
-- Final decision rule:  
-  - Compute reconstruction error using L2 norm.  
-  - Flag anomaly if > (median + k × MAD).  
-
----
-
-✅ **Key innovation:**  compare with other model or industry method, benchmark 
-This framework combined **GAF (temporal-preserving representation)** + **PCA (dimensionality reduction)** + **Autoencoder (feature learning)** + **Robust thresholding (L2 + MAD)**.  
-By training only on normal patterns, the model specialized in reconstructing baseline patterns, making deviation due to improper wearing or humidity easy to detect.
- 
----
 
 
-- **Baseline Condition (8 hours):**  
-  Participants wore Apple Watches during daily activities (10 AM – 6 PM). This created a large, context-rich dataset of *normal* behavior.  
-- **Controlled In-Lab Condition (25 minutes):**  
-  Each participant completed five 5-minute sessions:  
-  1. **Improper Wearing** (strap adjusted too loose/tight)  
-  2. **Resting (control)**  
-  3. **Unstable Network** (Wi-Fi interrupted for 2 minutes mid-session)  
-  4. **Resting (control)**  
-  5. **Elevated Humidity** (room humidity raised to ~65%)
-  <p align="center">
-  <img src="Figures/Experiment2_Flowchart.png" alt="Experiment 2 Procedure" style="width:40%;"/>
-  <br>
-  <em>Figure 4: Experiment 2 Procedure Flowchart</em>
-  </p>
 
-To enrich health-related signals and avoid overly static data, participants performed **guided low-intensity rehab exercises** (e.g., marching, side taps) during sessions. This setup aligned with clinical literature on rehabilitation exercises and ensured natural variability in heart rate and motion while keeping risk minimal.
 
-#### 2. Data Processing
-- **Synchronization:** Heart rate and motion data aligned on timestamps.  
-- **Feature Engineering:** Motion magnitude = Euclidean norm of x, y, z acceleration.  
-- **Normalization:** Min-Max scaling applied to [0,1].  
-- **Segmentation:**  
-  - Training set: baseline data segmented into a fixed-length window of 30 time steps.  
-  - Testing set: each 5-min session adjusted to the same length (padding/truncation).
- 
-📊 Examples of normalized data segments:
 
-<p align="center">
-  <img src="Figures/exp2_training_segment.png" alt="Training Data Segment: Baseline HR and Motion" width="600"/>
-  <br>
-  <em>Figure 5. Example of Training Data Segment: Normalized heart rate and motion magnitude during baseline.</em>
-</p>
 
-<p align="center">
-  <img src="Figures/exp2_testing_segment.png" alt="Testing Data Segment: Controlled Session HR and Motion" width="600"/>
-  <br>
-  <em>Figure 6. Example of Testing Data Segment: Normalized heart rate and motion magnitude during controlled conditions.</em>
-</p>
- 
+
 
 **Contextual Factor Analysis:**  
 - All three disruptions (human, environmental, technical) significantly increased reconstruction errors (ANOVA: F=26.14, p<0.00001).  
