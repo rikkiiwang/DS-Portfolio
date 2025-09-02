@@ -39,7 +39,7 @@ This project was motivated by such real-world challenges. Our goal was to improv
    <p align="center">
    <img src="Figures/Experiment2_Flowchart.png" alt="Experiment 2 Procedure" style="width:25%;"/>
    <br>
-   <em>Figure 4: Second Experiment Procedure Flowchart</em>
+   <em>Figure 1: Second Experiment Procedure Flowchart</em>
    </p>
 
 
@@ -63,15 +63,15 @@ The raw dataset combined Apple Watch heart rate (7–8s intervals) and motion da
 Examples of normalized data segments:
 
 <p align="center">
-  <img src="Figures/exp2_training_segment.png" alt="Training Data Segment: Baseline HR and Motion" width="600"/>
+  <img src="Figures/exp2_training_segment.png" alt="Training Data Segment: Baseline HR and Motion" width="500"/>
   <br>
-  <em>Figure 5. Example of Training Data Segment: Normalized heart rate and motion magnitude during baseline.</em>
+  <em>Figure 2. Example of Training Data Segment: Normalized heart rate and motion magnitude during baseline.</em>
 </p>
 
 <p align="center">
-  <img src="Figures/exp2_testing_segment.png" alt="Testing Data Segment: Controlled Session HR and Motion" width="600"/>
+  <img src="Figures/exp2_testing_segment.png" alt="Testing Data Segment: Controlled Session HR and Motion" width="500"/>
   <br>
-  <em>Figure 6. Example of Testing Data Segment: Normalized heart rate and motion magnitude during controlled conditions.</em>
+  <em>Figure 3. Example of Testing Data Segment: Normalized heart rate and motion magnitude during controlled conditions.</em>
 </p>
  
 ## Model Development    
@@ -83,12 +83,37 @@ We tested and advanced multiple models:
 | **Autoencoder + Attention (Hybrid ConvAE-ALSTM)** | CNN for spatial patterns + LSTM for temporal trends + Attention for context | To capture both short- and long-term dependencies          | Outperformed KitNet, robust to noisy data                                          |
 | **LLM (GPT-2 embeddings)**                        | Transformed PCA features into text-like sequences, embedded via GPT-2       | Tested frontier method: treating time series as “language” | Promising interpretability, but sensitive to noise; less accurate than autoencoder |
 
-- **Model choice decisions:**  
-  - Adopted GAF representation for Experiment 1 because literature showed its ability to transform 1D time series into 2D images that preserve temporal correlations, making anomalies more visible.  
-  - Adopted Hybrid Autoencoder (CNN + LSTM + Attention) for Experiment 2 because prior anomaly detection work emphasized combining spatial + temporal features.  
-  - Tested LLMs (GPT-2 embeddings) because emerging literature suggested LLMs can model sequential patterns when time series are serialized into tokens.
+---
+### 🔧 Introduction to Autoencoders  
+
+An autoencoder is a type of neural network designed to learn a compressed representation of data.  
+It consists of two main parts:  
+- **Encoder:** reduces the input into a compact latent representation (bottleneck).  
+- **Decoder:** reconstructs the input from this compressed form.  
+
+By training on *normal data only*, the autoencoder learns to reproduce expected patterns. When unusual conditions (e.g., improper wearing or high humidity) occur, the reconstruction becomes inaccurate, resulting in a **high reconstruction error**. This makes autoencoders especially powerful for anomaly detection in wearable signals, since anomalies naturally appear as poorly reconstructed patterns.  
+
+---
+
+### 🧩 Convolutional Autoencoder  
+
+<img width="1080" height="720" alt="image" src="https://github.com/user-attachments/assets/8b03bb14-a11b-4dbc-a81c-035d65611da0" />
+
+
+**Challenge:** Small, noisy wearable datasets → models prone to overfitting.  
+**Solution:** Hybrid ConvAE-ALSTM with Attention improved generalization, while PCA balanced HR vs. motion inputs.  
+
+---
+
+### 🔎 Model Choice Decisions    
+- **Experiment 1 (Pilot):**  
+  - Adopted **GAF transformation** + CNN autoencoder because literature showed that converting time-series into images preserves temporal correlations and highlights anomalies.  
+- **Experiment 2 (Expanded):**  
+  - Moved to **Hybrid ConvAE-ALSTM with Attention** to capture both **spatial features** (CNN) and **temporal dependencies** (LSTM) while focusing on salient signals (Attention).  
+- **Exploration of LLMs:**  
+  - Tested **GPT-2 embeddings** after PCA compression, inspired by emerging work treating time series as sequential “tokens” for LLMs.  
  
-Data Transformation Using GAF
+### 📈 Data Transformation Using GAF  
 - We transformed heart rate and 3D acceleration (x, y, z) into **image representations** using the **Gramian Angular Field (GAF)** method.  
 - GAF encodes time series into polar coordinates:  
   - Angular dimension = time  
@@ -96,52 +121,29 @@ Data Transformation Using GAF
 - This transformation preserves temporal correlations — critical for anomaly detection in physiological signals.  
 - We used Gramian Angular Summation Field (GASF), computed from cosine/sine outer products of the polar coordinates.
 
+<div align="center">
 <table>
 <tr>
-<td><img src="Figures/hr_normal.png" width="450"/><br><em>(a1) HR data, normal condition</em></td>
-<td><img src="Figures/hr_gaf_normal.png" width="350"/><br><em>(a2) HR GAF image, normal condition</em></td>
+<td><img src="Figures/hr_normal.png" width="250"/><br><em>(a1) HR data, normal condition</em></td>
+<td><img src="Figures/hr_gaf_normal.png" width="200"/><br><em>(a2) HR GAF image, normal condition</em></td>
 </tr>
 <tr>
-<td><img src="Figures/hr_humidity.png" width="450"/><br><em>(b1) HR data, elevated humidity</em></td>
-<td><img src="Figures/hr_gaf_humidity.png" width="350"/><br><em>(b2) HR GAF image, elevated humidity</em></td>
+<td><img src="Figures/hr_humidity.png" width="250"/><br><em>(b1) HR data, elevated humidity</em></td>
+<td><img src="Figures/hr_gaf_humidity.png" width="200"/><br><em>(b2) HR GAF image, elevated humidity</em></td>
+</tr>
+<tr>
+<td><img src="Figures/motion_normal.png" width="250"/><br><em>(c1) Motion data, normal condition</em></td>
+<td><img src="Figures/motion_gaf_normal.png" width="200"/><br><em>(c2) Motion GAF image, normal condition</em></td>
+</tr>
+<tr>
+<td><img src="Figures/motion_humidity.png" width="250"/><br><em>(d1) Motion data, elevated humidity</em></td>
+<td><img src="Figures/motion_gaf_humidity.png" width="200"/><br><em>(d2) Motion GAF image, elevated humidity</em></td>
 </tr>
 </table>
-<em>Figure 2: GAF Transformation of Heart Rate Data</em>
 
-<table>
-<tr>
-<td><img src="Figures/motion_normal.png" width="450"/><br><em>(c1) Motion data, normal condition</em></td>
-<td><img src="Figures/motion_gaf_normal.png" width="350"/><br><em>(c2) Motion GAF image, normal condition</em></td>
-</tr>
-<tr>
-<td><img src="Figures/motion_humidity.png" width="450"/><br><em>(d1) Motion data, elevated humidity</em></td>
-<td><img src="Figures/motion_gaf_humidity.png" width="350"/><br><em>(d2) Motion GAF image, elevated humidity</em></td>
-</tr>
-</table>
-<em>Figure 3: GAF Transformation of Motion Data</em>
+<em>Figure 4: GAF Transformation of Heart Rate and Motion Data</em>
+</div>
 
-Threshold Calculation (L2 Norm + MAD) of Autoencoder with GAF
-- **Why L2 norm?** Compared to MSE/MAE, the Euclidean distance better captured anomaly magnitude in the feature space.  
-- **Why MAD?** Median Absolute Deviation is robust to outliers, yielding **stable thresholds** for noisy wearable data.  
-- Final decision rule:  
-  - Compute reconstruction error using L2 norm.  
-  - Flag anomaly if > (median + k × MAD).
-This framework combined **GAF (temporal-preserving representation)** + **PCA (dimensionality reduction)** + **Autoencoder (feature learning)** + **Robust thresholding (L2 + MAD)**.  
-By training only on normal patterns, the model specialized in reconstructing baseline patterns, making deviation due to improper wearing or humidity easy to detect.
-
-Intro of convolutional autoencoder
-
-Autoencoder with attention structure: (draw this in a flowchart)
-**Architecture highlights:**  in flowchart
-- Input: (224 × 224 × 2) images (HR + motion)  
-- Encoder: 3 convolutional layers (32 filters, 3×3 kernel, ReLU activation)  
-- Downsampling: MaxPooling (2×2)  
-- Bottleneck: latent representation (forces compact feature learning)  
-- Decoder: Upsampling layers + final Conv layer with sigmoid activation  
-- Output: reconstructed image  
- 
-Challenge: Small, noisy datasets from real-world wearables made models prone to overfitting.
-Solution: Hybrid autoencoder with attention improved generalization, while PCA ensured balanced feature inputs.
 
 ---
 
@@ -157,37 +159,8 @@ Future Plans:
 - Expanding experiments to include multi-day, real-world data for greater robustness.
 - Exploring LLM–Autoencoder hybrid models for interpretable, high-accuracy anomaly detection in wearable health systems.
 
+---
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-**Contextual Factor Analysis:**  
-- All three disruptions (human, environmental, technical) significantly increased reconstruction errors (ANOVA: F=26.14, p<0.00001).  
-- Pairwise t-tests showed **very large effect sizes (Cohen’s d > 2.0)** for each factor compared to baseline.  
-- Importantly, **improper wearing, unstable network, and humidity caused similar magnitudes of data degradation** — different origins, but equivalent impact on data integrity.  
-
-#### 5. Key Takeaways
-- **Human, environmental, and technical factors all independently compromise wearable data integrity.**  
-- **Hybrid Autoencoder > LLM** for small, noisy, context-specific wearable datasets.  
-- **LLMs still hold promise** for multimodal or text-rich contexts, but require better feature-to-text representation.  
-- **Design implication:** anomaly detection in health wearables must handle *multiple disruption types simultaneously*, not just user errors.
-
 ## Publication
 - Wang, R., & Liao, T. *Examining Social and Environmental Factors for Wearable Data Integrity: A Case Study of Health-CPS.* ASME IDETC-CIE 2024.
 - Wang, R., & Liao, T. *Anomaly Detection in Multivariate Time Series Data of Wearable Devices: A Comparative Study of Autoencoders and Large Language Models.* IEEE Computational Intelligence Magazine, 2025. (Under Review)
