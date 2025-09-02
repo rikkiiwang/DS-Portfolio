@@ -1,18 +1,22 @@
 ## 📌 Project Overview  
-This project investigates the relationship between **heart rate data collected via Fitbit Charge 3** and **self-reported stress levels** among intensive care unit (ICU) residents. The study aimed to assess whether wearable data could provide reliable insights into stress in high-pressure clinical environments.  
+This project applied Fitbit Charge 3 wearable data to explore the relationship between heart rate patterns and self-reported stress in ICU medical residents. The study serves as a practical demonstration of how consumer-grade wearables can be leveraged for workplace stress monitoring in high-pressure industries such as healthcare.
 
-- **Population:** 57 ICU residents  
+- **Population:** 57 ICU residents at Los Angeles County + USC Medical Center  
 - **Duration:** 3 weeks  
-- **Device:** Fitbit Charge 3  
+- **Device:** Fitbit Charge 3, proximity sensors, smartphone app for surveys
 - **Data collected:** Continuous HR, steps, sleep metrics + daily stress surveys (midday and end-of-day)  
-- **Methods:** Spearman correlation, paired t-tests, point-biserial correlation, mixed-effects models, and Explainable boosting machine
-  
+
+By combining wearable signals with self-reports of stress, the project investigated whether physiological data can serve as a reliable indicator of occupational stress. Findings from this analysis provide insights for telehealth, wellness apps, and occupational health programs looking to integrate wearables for scalable, real-time stress monitoring.
 ---
 
 ## 🧠 Background & Motivation  
-ICU residents face high levels of occupational stress and burnout, which negatively impacts well-being and patient care. While wearables have potential for continuous stress monitoring, their reliability in real-world clinical environments remains underexplored.  
+Workplace stress is a critical issue across industries. In the ICU, physicians operate in a high-stakes, unpredictable environment where burnout rates are significantly higher than in the general population. Similar stress challenges exist in other demanding sectors such as finance, aviation, customer support, and logistics, where poor stress management can reduce performance and safety.
 
-This study contributes by analyzing long-term HR data in naturalistic ICU settings and aligning it with self-reported stress levels and stressors.
+Wearables like Fitbit offer continuous, unobtrusive tracking of physiological data (HR, sleep, activity). If combined with contextual information (self-reports, surveys, environmental data), they can enable early stress detection and personalized interventions. This project used the TILES-2019 dataset as a real-world testbed. By analyzing ICU residents’ heart rate and stress levels during their shifts to better understand:
+
+- How heart rate metrics reflect stress in natural work settings.
+- How daily stressors (e.g., health concerns, family issues) interact with physiology.
+- Why personalized models are necessary due to individual variability.
 
 ---
 
