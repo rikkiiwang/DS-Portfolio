@@ -1,13 +1,12 @@
 ## 📌 Project Overview - Wearable Data Integrity & Anomaly Detection
-This project aims to enhance the reliability and trustworthiness of wearable health monitoring systems by identifying anomalies in physiological data, including heart rate and motion signals. I conducted two human-subject experiments simulating potential user scenarios and developed a benchmark framework for anomaly detection in wearable time-series data. Starting with KitNet as the baseline, we advanced to more sophisticated models, including an autoencoder with image-based representations (GAF + CNN), attention-enhanced hybrid networks, and Large Language Models (LLMs).
-
-The project has resulted in three peer-reviewed publications. These findings highlight how anomaly detection can reduce false alerts, increase trust in health insights, and support the scalable use of wearables in telehealth, fitness, insurance, and safety-critical industries.
+This project aims to enhance the reliability and trustworthiness of wearable health monitoring systems by identifying anomalies in physiological data, including heart rate and motion signals. Two human-subject experiments were conducted to simulate real-world user scenarios. A benchmark framework was developed to evaluate anomaly detection models ranging from lightweight baselines to advanced neural networks and large language models (LLMs).
+The work has led to three peer-reviewed publications. These findings highlight how anomaly detection can reduce false alerts, increase trust in health insights, and support the scalable use of wearables in telehealth, fitness, insurance, and safety-critical industries.
 
 
 ## 📖 Background & Research Motivation
 Wearable devices, such as the Apple Watch and Fitbit, have become an integral part of daily life, enabling people to track their heart rate, sleep patterns, and activity levels. Yet, users often report false alerts (e.g., “abnormal heart rate” notifications while resting) or missing/incorrect data when the device is worn loosely, exposed to sweat/humidity, or suffers from poor connectivity. These errors undermine user trust and limit adoption in healthcare.
 
-From the perspective of healthcare and telehealth, Doctors hesitate to rely on consumer wearables for remote monitoring due to concerns about uncertain data integrity. A single false alarm can lead to unnecessary clinic visits or overlooked true emergencies. Regarding the related Fitness & Wellness Apps, Users cancel subscriptions when the app’s recommendations (e.g., calorie burn or training intensity) don’t match their actual effort due to faulty data.
+From a healthcare perspective, doctors hesitate to rely on consumer wearables for remote monitoring due to concerns about uncertain data integrity. A single false alarm can lead to unnecessary clinic visits or overlooked true emergencies. From an industry perspective, users cancel subscriptions when the app’s recommendations (e.g., calorie burn or training intensity) don’t match their actual effort due to faulty data.
 
 This project was motivated by such real-world challenges. Our goal was to improve the reliability of wearable health data by detecting anomalies caused by human behavior, environmental factors, or technical issues, ensuring more accurate and trustworthy monitoring.
 
@@ -93,12 +92,19 @@ It consists of two main parts:
 
 By training on *normal data only*, the autoencoder learns to reproduce expected patterns. When unusual conditions (e.g., improper wearing or high humidity) occur, the reconstruction becomes inaccurate, resulting in a **high reconstruction error**. This makes autoencoders especially powerful for anomaly detection in wearable signals, since anomalies naturally appear as poorly reconstructed patterns.  
 
----
 
 ### 🧩 Convolutional Autoencoder  
-
-<img width="1080" height="720" alt="image" src="https://github.com/user-attachments/assets/8b03bb14-a11b-4dbc-a81c-035d65611da0" />
-
+Convolutional Autoencoders are effective for image denoising, compression, and feature extraction because their convolutional nature preserves important spatial patterns, unlike fully connected autoencoders.
+<p align="center">
+  <img src="Figures/Conv_autoencoder.png" alt="Structure of Convolutional Autoencoder" width="700"/>
+  <br>
+  <em>Figure 4. Structure of Convolutional Autoencoder. <br>
+  Adapted from N. Kowalczyk, M. Sobotka, and J. Rumiński, 
+  "Mask Detection and Classification in Thermal Face Images," 
+  <em>IEEE Access</em>, vol. 11, pp. 43349–43359, 2023. 
+  <a href="https://doi.org/10.1109/ACCESS.2023.3272214">https://doi.org/10.1109/ACCESS.2023.3272214</a>, 
+  licensed under CC BY 4.0.</em>
+</p>
 
 **Challenge:** Small, noisy wearable datasets → models prone to overfitting.  
 **Solution:** Hybrid ConvAE-ALSTM with Attention improved generalization, while PCA balanced HR vs. motion inputs.  
@@ -162,6 +168,7 @@ Future Plans:
 ---
   
 ## Publication
+- Wang, R., & Liao, T. *Identifying and Evaluating the Effects of User Scenarios on the Data Integrity of Wearable Devices.* Conference on Systems Engineering Research 2023.
 - Wang, R., & Liao, T. *Examining Social and Environmental Factors for Wearable Data Integrity: A Case Study of Health-CPS.* ASME IDETC-CIE 2024.
 - Wang, R., & Liao, T. *Anomaly Detection in Multivariate Time Series Data of Wearable Devices: A Comparative Study of Autoencoders and Large Language Models.* IEEE Computational Intelligence Magazine, 2025. (Under Review)
 
