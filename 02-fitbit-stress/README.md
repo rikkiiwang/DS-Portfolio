@@ -44,7 +44,11 @@ Wearables like Fitbit offer continuous, unobtrusive tracking of physiological da
 
 ---
 ## 🧩 Analysis Pipeline
-
+<p align="center">
+  <img src="Figures/Analysis Pipeline.png" alt="Analysis Pipeline" width="500"/>
+  <br>
+  <em>Figure 3. End-to-end pipeline: from data collection to interpretable stress prediction.</em>
+</p>
 
 ---
 
