@@ -43,8 +43,12 @@ Wearables like Fitbit offer continuous, unobtrusive tracking of physiological da
 </p>
 
 ---
+## 🧩 Analysis Pipeline
 
-## 🔬 Analysis & Methods  
+
+---
+
+## 🔬 Methods  
 
 ### Stage 1: Correlation Analysis  
 - Explored relationships between HR metrics (mean, min, median, SD, percentile-based medians, peak HR) and self-reported stress.  
@@ -131,6 +135,17 @@ Table 6. Results of the linear mixed model on the influence of stress level and 
   <br>
   <em>Distribution of random intercepts showing variability in baseline HR.</em>
 </p>
+
+---
+
+### Stage 4: Predictive Modeling with Explainable Boosting Machine (EBM)
+- Survey-based EBM:
+  - R² ≈ 0.99 → next-day stress can be almost perfectly predicted from midday + end-of-day stress.
+  - Midday stress (importance 0.75) and evening stress (0.57) were dominant predictors.
+- Fitbit-based EBM:
+    - R² = 0.41, RMSE = 1.27 → physiological signals explain ~40% of variance.
+    - Strongest predictors: deep sleep (negative), REM/light sleep, resting HR (positive).
+- Interpretability: EBM clearly revealed which features drive next-day stress, making results transparent and actionable.
 
 ---
 
