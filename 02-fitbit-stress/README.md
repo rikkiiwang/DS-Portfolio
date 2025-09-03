@@ -7,6 +7,7 @@ This project applied Fitbit Charge 3 wearable data to explore the relationship b
 - **Data collected:** Continuous HR, steps, sleep metrics + daily stress surveys (midday and end-of-day)  
 
 By combining wearable signals with self-reports of stress, the project investigated whether physiological data can serve as a reliable indicator of occupational stress. Findings from this analysis provide insights for telehealth, wellness apps, and occupational health programs looking to integrate wearables for scalable, real-time stress monitoring.
+
 ---
 
 ## 🧠 Background & Motivation  
@@ -31,11 +32,12 @@ Wearables like Fitbit offer continuous, unobtrusive tracking of physiological da
 📈 Example visualization:  
 
 <p align="center">
-  <img src="Figures/raw_HR_example.png" alt="Raw heart rate data before surveys" width="600"/>
+  <img src="Figures/raw_HR_example.png" alt="Raw heart rate data before surveys" width="350"/>
   <br>
   <em>Figure 1. Raw heart rate before midday (stress=3.0) surveys.</em>
-
-  <img src="Figures/Comparison of heart rate patterns.png" alt="Heart rate pattern" width="800"/>
+</p>
+<p align="center">
+  <img src="Figures/Comparison of heart rate patterns.png" alt="Heart rate pattern" width="450"/>
   <br>
   <em>Figure 2. Comparison of heart rate patterns between midday and end-of-day surveys for one participant.</em>
 </p>
@@ -125,7 +127,7 @@ Table 6. Results of the linear mixed model on the influence of stress level and 
 | Survey\_Type \[end-of-day] variance        | 1.67        | 0.26 | —     | —       | —               |
 
 <p align="center">
-  <img src="Figures/random_intercepts_hist.png" alt="Random intercepts distribution" width="500"/>
+  <img src="Figures/random_intercepts_hist.png" alt="Random intercepts distribution" width="400"/>
   <br>
   <em>Distribution of random intercepts showing variability in baseline HR.</em>
 </p>
@@ -141,8 +143,8 @@ Table 6. Results of the linear mixed model on the influence of stress level and 
 ---
 
 ## 📌 Takeaways  
-- **Wearables show promise** but should be combined with self-reports and other physiological markers (e.g., HRV, cortisol).  
-- **Personalized modeling** is critical due to high inter-individual variability.  
-- This study advances the case for **multimodal stress monitoring systems** in healthcare professionals.  
+- For healthcare: Wearables can support stress monitoring in clinical staff, but should be combined with surveys or multimodal biomarkers (e.g., HRV, cortisol).
+- For wellness apps: HR patterns can offer insight into stress but require personalization to avoid misleading results.
+- For future research: Combining wearables with machine learning offers promise for scalable, real-world stress monitoring systems.
 
----
+
