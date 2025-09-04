@@ -23,7 +23,7 @@ These projects were conducted as part of my PhD research and collaborations. The
 | [Wearable Anomaly Detection](./01-wearable-anomaly/README.md) | Detect anomalies in Apple Watch HR + motion data under improper wearing, elevated humidity, unstable network conditions | PyTorch, Autoencoder, GPT-2, PCA, GAF | Private |
 | [Fitbit Stress & Sleep Study](./02-fitbit-stress/README.md) | Modeling the link between stress, HR, and sleep | Python, Mixed-Effects, EBM, Scikit-learn | Public |
 | [Trust & Telehealth Adoption](./03-trust-xai/README.md) | Trust in AI explanations + telehealth adoption analysis (HINTS dataset) | Ordinal logistic regression, Mediation analysis | Public |
-| [PneuNet Diagnostic AI](./04-pneunet/README.md) | Pneumonia detection from 30K+ X-rays using ViT + ResNet | PyTorch, Vision Transformer, ResNet | Public |
+| [PneuNet Diagnostic AI](./04-Pneunet/README.md) | Pneumonia detection from 30K+ X-rays using ViT + ResNet | PyTorch, Vision Transformer, ResNet | Public |
 
 ---
 
@@ -72,5 +72,11 @@ These projects were done independently to explore new tools and techniques in ma
 [Read More](./03-trust-xai/README.md)
 
 ---
+### 🫁 PneuNet: AI-Driven Pneumonia Detection  
+*Built a deep learning pipeline to automate pneumonia detection from chest X-ray images, supporting faster and more reliable clinical screening.*  
+- Processed a large-scale public chest X-ray dataset (normal vs. pneumonia cases).  
+- Designed and trained convolutional neural networks (CNNs) for image classification.  
+- Achieved strong performance in distinguishing pneumonia cases from healthy controls, demonstrating potential for real-world diagnostic support.  
 
+[Read More](./04-pneunet/README.md)  
 
