@@ -133,14 +133,9 @@ Table 5. Correlation Analysis Result
 - User satisfaction and usability (SUS score) showed positive but non-significant effects.
 
 Table 6. Mixed Linear Model Regression Results
-| Variable                        | Coef. | Std. Err. | z     | P>|z| | [0.025, 0.975] |
-|---------------------------------|-------|-----------|-------|------|-----------------|
-| Intercept                       | 1.974 | 0.797     | 2.476 | 0.013 | [0.411, 3.536] |
-| Condition [T. With Explanation] | 0.140 | 0.079     | 1.769 | 0.077 | [-0.015, 0.295] |
-| Q3_Satisfaction                 | 0.201 | 0.205     | 0.977 | 0.329 | [-0.202, 0.603] |
-| SUS_Score                       | 0.012 | 0.009     | 1.282 | 0.200 | [-0.006, 0.030] |
-| Group Var                       | 0.370 | 0.610     |   –   |   –   |        –        |
-
+<p align="left">
+<img width="600" height="350" alt="image" src="https://github.com/user-attachments/assets/80095968-e05f-4854-8a3b-0ad976b2f063" />
+</p>
 
 ### 📈 Key Insights 
 - Usability baseline: SUS score of 78.4 (Good usability), showing users found Apple Watch generally reliable.
