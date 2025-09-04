@@ -49,23 +49,26 @@ These projects were done independently to explore new tools and techniques in ma
 ## 🌟 Project Highlights
 
 ### ⌚ Wearable Data Integrity & Anomaly Detection
-*Collected and analyzed 200K+ Apple Watch datapoints across different conditions (improper wearing, elevated humidity, unstable networks).*
-- Built autoencoder, CNN, and GPT-2 embedding pipelines.
-
+*Developed robust anomaly detection methods for wearable data streams, ensuring reliability in real-world health monitoring.*
+- Collected and analyzed 200K+ Apple Watch datapoints under varied conditions (improper wearing, unstable networks, elevated humidity).
+- Designed and evaluated autoencoder, CNN, and GPT-2 embedding pipelines for multivariate time series anomaly detection.
+- Demonstrated how user-related, environmental and technical factors impact data integrity, providing insights critical for scaling remote health monitoring systems.
+[Read More](./01-wearable-anomaly/README.md)
 ---
 
 ### 💤 Fitbit Stress & Sleep Signal Analysis
-*Explored relationship between stress, heart rate, and sleep in ICU residents.*  
+*Explored the relationship between stress, heart rate, and sleep in ICU residents.*  
 - Mixed-effects modeling accounted for individual variability.  
-- Built Explainable Boosting Machine (EBM) → reduced stress prediction MSE by 10%.  
+- Built an Explainable Boosting Machine (EBM) to predict next-day stress. Achieved a 10% reduction in stress prediction error compared to baseline models.  
 [Read More](./02-fitbit-stress/README.md)
 
 ---
 
 ### 🤝 Trust, Explainability & Telehealth
 *Evaluated user trust in Apple Watch recommendations using survey data collected by me and explored the relationship between the use of wearables and telehealth adoption using the HINTS 6 dataset.*  
-- Designed and conducted a survey to evaluate the usability, explainability, and data visualization in wearable health monitoring.  
-- Secondary analysis on HINT6 dataset: wearable use positively linked to telehealth adoption among older adults.  
+- Designed and conducted a survey to evaluate the usability, visualization, contextual information, and Explainable AI (XAI) in wearable health monitoring.  
+- Conducted secondary analysis on HINTS 6 dataset (1,596 adults ≥65), showing wearable use is a significant predictor of telehealth adoption.
+- Results provide business-ready insights for digital health companies on designing trustworthy AI interfaces and targeting adoption strategies for older populations.
 [Read More](./03-trust-xai/README.md)
 
 ---
