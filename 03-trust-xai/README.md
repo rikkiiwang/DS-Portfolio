@@ -35,14 +35,21 @@ among older US adults (N=1596)
 | Gender | 1.04 (0.84–1.29) | .74 | No effect |
 | Physical activity | 0.96 (0.92–1.01) | .11 | No effect |
 
-#### Mediation Effects  
 
+Table 2. Total and indirect effects in the conceptual mediation model.
 | Pathway | Indirect Effect | p-value | Interpretation |
 |---------|-----------------|---------|----------------|
 | Wearable → Education → Telehealth | +0.055 | <.001 | Wearables increase education-linked adoption |
 | Wearable → Income → Telehealth | +0.040 | .007 | Wearables associated with higher-income adopters |
 | Wearable → Health → Telehealth | –0.033 | .004 | Better health reduces need for telehealth |
-| **Total Effect** | **+0.199** | .007 | Wearables increase adoption overall:contentReference[oaicite:3]{index=3} |
+| **Total Effect** | **+0.199** | .007 | Wearables increase adoption overall |
+
+
+<p align="center">
+  <img src="Figures/Conceptual model.png" alt="Conceptual model" width="350"/>
+  <br>
+  <em>Figure 1. Conceptual model illustrating the relationship between the use of wearable devices and telehealth adoption.</em>
+</p>
 
 ### 💡 Key Insights 
 - Wearable device use increased the likelihood of telehealth adoption (OR=1.32, *p*=.03).  
