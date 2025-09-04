@@ -53,14 +53,14 @@ These projects were done independently to explore new tools and techniques in ma
 - Collected and analyzed 200K+ Apple Watch datapoints under varied conditions (improper wearing, unstable networks, elevated humidity).
 - Designed and evaluated autoencoder, CNN, and GPT-2 embedding pipelines for multivariate time series anomaly detection.
 - Demonstrated how user-related, environmental and technical factors impact data integrity, providing insights critical for scaling remote health monitoring systems.
-[Read More](./01-wearable-anomaly/README.md)
+  [Read More](./01-wearable-anomaly/README.md)
 ---
 
 ### 💤 Fitbit Stress & Sleep Signal Analysis
 *Explored the relationship between stress, heart rate, and sleep in ICU residents.*  
 - Mixed-effects modeling accounted for individual variability.  
-- Built an Explainable Boosting Machine (EBM) to predict next-day stress. Achieved a 10% reduction in stress prediction error compared to baseline models.  
-[Read More](./02-fitbit-stress/README.md)
+- Built an Explainable Boosting Machine (EBM) to predict next-day stress. Achieved a 10% reduction in stress prediction error compared to baseline models.
+  [Read More](./02-fitbit-stress/README.md)
 
 ---
 
@@ -69,14 +69,13 @@ These projects were done independently to explore new tools and techniques in ma
 - Designed and conducted a survey to evaluate the usability, visualization, contextual information, and Explainable AI (XAI) in wearable health monitoring.  
 - Conducted secondary analysis on HINTS 6 dataset (1,596 adults ≥65), showing wearable use is a significant predictor of telehealth adoption.
 - Results provide business-ready insights for digital health companies on designing trustworthy AI interfaces and targeting adoption strategies for older populations.
-[Read More](./03-trust-xai/README.md)
+  [Read More](./03-trust-xai/README.md)
 
 ---
 ### 🫁 PneuNet: AI-Driven Pneumonia Detection  
 *Built a deep learning pipeline to automate pneumonia detection from chest X-ray images, supporting faster and more reliable clinical screening.*  
 - Processed a large-scale public chest X-ray dataset (normal vs. pneumonia cases).  
 - Designed and trained convolutional neural networks (CNNs) for image classification.  
-- Achieved strong performance in distinguishing pneumonia cases from healthy controls, demonstrating potential for real-world diagnostic support.  
-
-[Read More](./04_PneuNet/README.md)  
+- Achieved strong performance in distinguishing pneumonia cases from healthy controls, demonstrating potential for real-world diagnostic support.
+  [Read More](./04_PneuNet/README.md)  
 
