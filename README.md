@@ -23,7 +23,7 @@ These projects were conducted as part of my PhD research and collaborations. The
 | [Wearable Anomaly Detection](./01-wearable-anomaly/README.md) | Detect anomalies in Apple Watch HR + motion data under improper wearing, elevated humidity, unstable network conditions | PyTorch, Autoencoder, GPT-2, PCA, GAF | Private |
 | [Fitbit Stress & Sleep Study](./02-fitbit-stress/README.md) | Modeling the link between stress, HR, and sleep | Python, Mixed-Effects, EBM, Scikit-learn | Public |
 | [Trust & Telehealth Adoption](./03-trust-xai/README.md) | Trust in AI explanations + telehealth adoption analysis (HINTS dataset) | Ordinal logistic regression, Mediation analysis | Public |
-| [PneuNet Diagnostic AI](./04-PneuNet/README.md) | Pneumonia detection from 30K+ X-rays using ViT + ResNet | PyTorch, Vision Transformer, ResNet | Public |
+| [PneuNet Diagnostic AI](./04_PneuNet/README.md) | Pneumonia detection from 30K+ X-rays using ViT + ResNet | PyTorch, Vision Transformer, ResNet | Public |
 
 ---
 
@@ -78,5 +78,5 @@ These projects were done independently to explore new tools and techniques in ma
 - Designed and trained convolutional neural networks (CNNs) for image classification.  
 - Achieved strong performance in distinguishing pneumonia cases from healthy controls, demonstrating potential for real-world diagnostic support.  
 
-[Read More](./04-PneuNet/README.md)  
+[Read More](./04_PneuNet/README.md)  
 
