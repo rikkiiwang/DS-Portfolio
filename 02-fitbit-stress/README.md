@@ -143,12 +143,13 @@ Table 6. Results of the linear mixed model on the influence of stress level and 
 ---
 
 ### Stage 4: Predictive Modeling with Explainable Boosting Machine (EBM)
-- Survey-based EBM:
-  - R² ≈ 0.99 → next-day stress can be almost perfectly predicted from midday + end-of-day stress.
-  - Midday stress (importance 0.75) and evening stress (0.57) were dominant predictors.
+- Baseline model: linear regression. (RMSE = 1.41)
 - Fitbit-based EBM:
     - R² = 0.41, RMSE = 1.27 → physiological signals explain ~40% of variance.
     - Strongest predictors: deep sleep (negative), REM/light sleep, resting HR (positive).
+- Survey-based EBM:
+  - R² ≈ 0.99 → next-day stress can be almost perfectly predicted from midday + end-of-day stress.
+  - Midday stress (importance 0.75) and evening stress (0.57) were dominant predictors.
 - Interpretability: EBM clearly revealed which features drive next-day stress, making results transparent and actionable.
 
 ---
