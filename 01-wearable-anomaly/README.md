@@ -12,7 +12,7 @@ This project was motivated by such real-world challenges. Our goal was to improv
 
 
 
-## 🧪 Benchmark, Metrics, and Experiment Setup
+## 🧪 Benchmark, Metrics, and Experiment Design
 ### Evaluation Metric  
 - **Reconstruction Error:** Difference between input data and model reconstruction.  
 - Larger errors = stronger deviation from expected "normal" patterns.  
@@ -23,7 +23,7 @@ This project was motivated by such real-world challenges. Our goal was to improv
 - Strengths: Fast, unsupervised, suitable for small devices.  
 - Limitations: Detected obvious anomalies but struggled with subtle changes and user variability, exposing a performance gap.  
 
-### Experiment Setup  
+### Experiment Design  
 #### First Experiment (Pilot)  
 - **Session Length:** 25 minutes  
 - **Conditions:** Normal Wearing, Resting (control), Improper Wearing (loose strap)  
