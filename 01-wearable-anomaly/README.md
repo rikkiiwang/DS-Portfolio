@@ -17,6 +17,12 @@ This project was motivated by such real-world challenges. Our goal was to improv
 - **Reconstruction Error:** Difference between input data and model reconstruction.  
 - Larger errors = stronger deviation from expected "normal" patterns.  
 - Used as the primary anomaly detection metric.
+- The reconstruction error for input $\mathbf{x}$ and its reconstruction $\hat{\mathbf{x}}$ is calculated as:
+
+$$
+E(\mathbf{x}) = \lVert \mathbf{x} - \hat{\mathbf{x}} \rVert^2_2 
+= \sum_{i=1}^{n} (x_i - \hat{x}_i)^2
+$$
 
 ### Baseline Model  
 - **KitNet**: Lightweight ensemble of autoencoders, originally for network intrusion detection.  
@@ -24,21 +30,18 @@ This project was motivated by such real-world challenges. Our goal was to improv
 - Limitations: Detected obvious anomalies but struggled with subtle changes and user variability, exposing a performance gap.  
 
 ### Experiment Design  
-#### First Experiment (Pilot)  
-- **Session Length:** 25 minutes  
-- **Conditions:** Normal Wearing, Resting (control), Improper Wearing (loose strap)  
-- **Limitation:** Small training dataset → led to expansion in the second experiment.  
+| Aspect | **First Experiment (Pilot)** | **Second Experiment (Expanded Study)** |
+|--------|-------------------------------|-----------------------------------------|
+| **Session Length** | 25 minutes total | Baseline: 8 hours (10 AM – 6 PM)<br>Controlled: 25 minutes |
+| **Conditions** | - Normal Wearing<br>- Resting (control)<br>- Improper Wearing (loose strap) | - Baseline: Daily activities (normal data)<br>- Controlled: Five 5-min sessions<br> • Resting (×2, control)<br> • Improper Wearing<br> • Unstable Network<br> • Elevated Humidity |
+| **Purpose** | Initial pilot to test feasibility | Expanded study with richer dataset for robust training and controlled evaluation |
+| **Limitations** | Small training dataset | Broader dataset, addressing pilot limitation |
+| **Outcome** | Identified need for larger dataset | Provided both baseline training data and controlled test conditions |
 
-#### Second Experiment (Expanded Study)  
-- **Baseline Condition (8 hours):**  
-  - Participants wore Apple Watches during daily activities (10 AM – 6 PM).  
-  - Rich dataset of *normal* behavior, used for model training.  
-- **Controlled In-Lab Condition (25 minutes):**  
-  Each participant completed **five 5-minute sessions** including improper wearing, unstable network, elevated humidity adn two resting sessions (control).
    <p align="center">
-   <img src="Figures/Experiment2_Flowchart.png" alt="Experiment 2 Procedure" style="width:25%;"/>
+   <img src="Figures/Experiment2_Flowchart.png" alt="Experiment 2 Procedure" style="width:35%;"/>
    <br>
-   <em>Figure 1: Second Experiment Procedure Flowchart</em>
+   <em>Figure 1: Second Experiment Controlled Session Procedure Flowchart</em>
    </p>
 
 
@@ -62,13 +65,13 @@ The raw dataset combined Apple Watch heart rate (7–8s intervals) and motion da
 Examples of normalized data segments:
 
 <p align="center">
-  <img src="Figures/exp2_training_segment.png" alt="Training Data Segment: Baseline HR and Motion" width="500"/>
+  <img src="Figures/exp2_training_segment.png" alt="Training Data Segment: Baseline HR and Motion" width="550"/>
   <br>
   <em>Figure 2. Example of Training Data Segment: Normalized heart rate and motion magnitude during baseline.</em>
 </p>
 
 <p align="center">
-  <img src="Figures/exp2_testing_segment.png" alt="Testing Data Segment: Controlled Session HR and Motion" width="500"/>
+  <img src="Figures/exp2_testing_segment.png" alt="Testing Data Segment: Controlled Session HR and Motion" width="550"/>
   <br>
   <em>Figure 3. Example of Testing Data Segment: Normalized heart rate and motion magnitude during controlled conditions.</em>
 </p>
@@ -156,9 +159,14 @@ Convolutional Autoencoders are effective for image denoising, compression, and f
 ## Insights & Future Plans
 
 This project highlights:
-- User Trust: False alerts reduce confidence in wearables; anomaly detection can filter errors before they reach the user.
-- Healthcare Applications: Reliable anomaly detection enables clinicians to trust wearable data for remote monitoring, potentially reducing hospital visits and improving early detection.
-- Scalability: Lightweight methods like KitNet are ideal for devices with limited computation, while advanced autoencoders can run on the cloud for richer analytics.
+In healthcare applications, this project improves wearable data reliability by filtering false alerts caused by social, technical, and environmental factors, ensuring that only trustworthy information reaches users and clinicians. By leveraging reconstruction-based autoencoders for robust validation and lightweight methods like KitNet for edge deployment, the system balances accuracy and scalability. The table below contrasts our approach with common practices in commercial wearables.
+| Aspect | Industry Standard (e.g., Apple Watch, Fitbit) | This Project’s Optimization |
+|--------|-----------------------------------------------|------------------------------|
+| **Error Handling** | Basic threshold-based filtering, prone to false alerts | Anomaly detection using reconstruction error → filters improper wearing, unstable network, and humidity effects |
+| **Trust & User Experience** | False positives reduce user confidence | Fewer false alerts → stronger user trust and adherence |
+| **Clinical Value** | Limited acceptance due to inconsistent data integrity | Provides high-integrity signals clinicians can rely on for remote monitoring |
+| **Scalability** | On-device only; limited analytics capacity | Lightweight KitNet for on-device, advanced autoencoders for cloud analytics |
+| **Healthcare Impact** | Mostly fitness/wellness tracking | Supports early detection, reduces hospital visits, and strengthens proactive care systems |
 
 Future Plans:
 - Integrating explainable AI (XAI) to show why an anomaly was flagged (improving transparency).
