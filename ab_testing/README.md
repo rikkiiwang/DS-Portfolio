@@ -26,7 +26,8 @@ Relying on intuition is risky. A/B testing provides a scientific way to validate
 ### The Business Problem
 - Concern: Level 30 gate may be too early, frustrating players before they are invested.
 - Hypothesis: Moving the gate to Level 40 would increase early engagement & retention, and in turn influence monetization.
-  
+
+Table 1. Mapping Business Goals to Metrics
 | **Business Goal**              | **Metric Translation**                  |
 | ------------------------------ | --------------------------------------- |
 | Improve player stickiness      | Retention rates (Day-1, Day-7)          |
@@ -52,6 +53,7 @@ Figure 1: Example of the dataset structure
   - **Day-7 (D7)** – player returned one week later.  
 
 ### Experiment Setup  
+Table 2. Experimental Design
 | **Group**   | **Gate Position** | **Players (N)** |  
 |-------------|------------------|-----------------|  
 | **Control** | Level 30         | 44,700          |  
@@ -65,6 +67,7 @@ Figure 1: Example of the dataset structure
 ## 3. Results  
 
 ### Engagement (Rounds Played)  
+Table 3. Engagement Metrics
 | **Metric**       | **Gate 30** | **Gate 40** | **Difference** |  
 |------------------|-------------|-------------|----------------|  
 | Median Rounds    | ~17         | ~16         | Not significant |  
@@ -72,6 +75,7 @@ Figure 1: Example of the dataset structure
 ➡ No evidence that moving the gate later increased playtime.  
 
 ### Retention Rates  
+Table 4. Retention Metrics
 | **Version** | **Users Count** | **Day-1 Retention Rate** | **Day-7 Retention Rate** | **Total Game Rounds** |  
 |-------------|-----------------|--------------------------|--------------------------|-----------------------|  
 | **gate_30** (Control) | 44,700 | **0.4482** | **0.1902** | 2,344,795 |  
