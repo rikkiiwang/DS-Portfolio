@@ -1,6 +1,9 @@
 # 🎮 A/B Testing in Mobile Gaming: Progression Gate Optimization 
 
 ## Project Overview
+<p align="center">
+  <img width="664" height="302" alt="image" src="https://github.com/user-attachments/assets/79ddf2b9-e9e5-44b7-9f51-8a4d0fc27a0c" />
+</p>  
 This project evaluated the impact of shifting the first progression gate in Cookie Cats (a mobile match-3 puzzle game by Tactile Entertainment) from Level 30 → Level 40.
 Using a randomized A/B test with 90,189 players, we measured engagement (rounds played) and retention (Day-1 & Day-7).   
 
