@@ -1,8 +1,8 @@
-# A/B Testing in Mobile Gaming: Progression Gate Optimization 
+# 🎮 A/B Testing in Mobile Gaming: Progression Gate Optimization 
 
 ## Project Overview
-This project evaluated the impact of shifting the **first progression gate** in a mobile puzzle game from **Level 30 → Level 40**.  
-Using a randomized A/B test with 90,189 players, we measured engagement (rounds played) and retention (at Day 1 and Day 7).  
+This project evaluated the impact of shifting the first progression gate in Cookie Cats (a mobile match-3 puzzle game by Tactile Entertainment) from Level 30 → Level 40.
+Using a randomized A/B test with 90,189 players, we measured engagement (rounds played) and retention (Day-1 & Day-7).   
 
 **Result:** Delaying the gate did **not improve engagement** and **reduced 7-day retention** (~5% relative decline).  
 **Recommendation:** Keep the Level-30 gate.    
@@ -10,26 +10,43 @@ Using a randomized A/B test with 90,189 players, we measured engagement (rounds 
 ---
 
 ## 1. Background & Motivation  
-Progression gates are common in free-to-play games. They:  
-- Control the pace of gameplay,  
-- Introduce friction that encourages in-app purchases,  
-- Help sustain long-term player engagement.  
+### About Cookie Cats:
+- Genre: Casual match-3 puzzle.
+- Core loop: Players clear levels by matching tiles.
+- Monetization: Free-to-play (IAPs for boosters, skips, extra lives).
 
-But if mistimed, they can backfire:  
-- Too early: frustrates players before they’re invested.  
-- Too late: weakens the sense of achievement and reduces habit-forming behavior.
+### Why A/B Testing in Gaming?
+In the mobile gaming industry, player experience and monetization are tightly coupled. Even small design changes (like gate placement) can shift:
+- Retention – whether players keep playing after install.
+- Engagement – how many rounds they complete.
+- Revenue – as retention drives lifetime value (LTV) and IAP conversion.
 
-The **business question** was simple:  
-> *Would pushing the first gate later (to Level 40) keep players engaged longer, or would it hurt retention?*  
+Relying on intuition is risky. A/B testing provides a scientific way to validate changes before global rollout.
 
-Testing ensured that the team didn’t rely solely on intuition to make a high-impact design change.  
- 
+### The Business Problem
+- Concern: Level 30 gate may be too early, frustrating players before they are invested.
+- Hypothesis: Moving the gate to Level 40 would increase early engagement & retention, and in turn influence monetization.
+  
+| **Business Goal**              | **Metric Translation**                  |
+| ------------------------------ | --------------------------------------- |
+| Improve player stickiness      | Retention rates (Day-1, Day-7)          |
+| Boost engagement               | Number of rounds played                 |
+| Protect monetization potential | Active retained players × average rounds played |               |
 
 ---
-## 2. Benchmark & Metrics  
+## 2. Dataset & Metrics
+The dataset contains player-level records including:
+- userid → unique player ID
+- version → experimental condition (gate_30 or gate_40)
+- sum_gamerounds → number of rounds played in the first week
+- retention_1 → whether the player returned on Day-1
+- retention_7 → whether the player returned on Day-7
+<img width="519" height="198" alt="image" src="https://github.com/user-attachments/assets/676cd7a5-3538-41ab-af31-597893bb319a" />
+
+Figure 1: Example of the dataset structure
 
 ### Evaluation Metrics  
-- **Engagement:** total game rounds played in the first 14 days.  
+- **Engagement:** total game rounds played in the first week.  
 - **Retention:**  
   - **Day-1 (D1)** – player returned the next day.  
   - **Day-7 (D7)** – player returned one week later.  
@@ -45,21 +62,7 @@ Testing ensured that the team didn’t rely solely on intuition to make a high-i
 - **Decision rule:** Ship only if engagement increases and retention does not decrease.  
 
 ---
-
-## 3. Randomization Check (AA Test)  
-
-Before testing effects, simulate an AA-style test to validate the balance between groups.  
-
-| **Metric**         | **Test**          | **p-value** | **Conclusion** |  
-|---------------------|------------------|-------------|----------------|  
-| Game Rounds         | Welch’s t-test   | 0.949       | ✅ Comparable |  
-| Day-1 Retention     | Chi-square       | 0.075       | ✅ No diff |  
-| Day-7 Retention     | Chi-square       | 0.064       | ✅ No diff |  
-
-➡ Confirms groups are balanced → any difference is due to gate change.  
-
----
-## 4. Results  
+## 3. Results  
 
 ### Engagement (Rounds Played)  
 | **Metric**       | **Gate 30** | **Gate 40** | **Difference** |  
@@ -82,18 +85,16 @@ Before testing effects, simulate an AA-style test to validate the balance betwee
   <br>  
   <em>Figure 1: Comparison of Day-1 and Day-7 retention between groups</em>  
 
-
-### Insight  
 While **Day-1 retention** remained nearly identical, **Day-7 retention dropped by 0.8 percentage points (~5% relative decline)** in the test group.  
 This suggests that moving the first gate later (to Level 40) **weakened long-term player stickiness**, even though early engagement (rounds played) was unaffected.  
 
 ---
-## 5. Insights & Recommendations  
+## 4. Insights & Recommendations  
 
 ### Key Findings  
-- Delaying gate to Level 40 did ❌ not improve engagement.  
+- Delaying gate to Level 40 ❌ did not improve engagement.  
 - Day-1 retention ~stable.  
-- Day-7 retention ↓ 0.8pp (~5% relative).  
+- Day-7 retention drop significantly.  
 - 99.8% bootstrap certainty of worse retention.  
 
 ### Business Impact  
@@ -108,9 +109,4 @@ This suggests that moving the first gate later (to Level 40) **weakened long-ter
 ---
 
 ## 📌 Key Takeaway  
-This A/B test shows how **experimentation protects both players and business outcomes**.  
-Instead of guessing, we measured:  
-- Engagement → unchanged  
-- Retention → harmed  
-- Decision → **don’t launch**  
-
+This case demonstrates how A/B testing translates abstract business goals (player stickiness, monetization) into measurable metrics. In mobile gaming, where design tweaks can make or break revenue, rigorous testing ensures evidence-based decision-making.
