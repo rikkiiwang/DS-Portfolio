@@ -59,6 +59,7 @@ Table 1. Mapping Business Goals to Metrics
 
 ### Challenge 2: Accessing and Preparing Data
 The dataset required for analysis was sourced from the data engineering (DE) team. It contained player-level records, with the following key fields:
+
 Table 1. Dataset Structure
 | **Field**        | **Description**                                    |
 | ---------------- | -------------------------------------------------- |
