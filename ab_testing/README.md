@@ -83,7 +83,7 @@ Table 2. Stratification Dimensions
 | User Cohort     | New users (<7 days), Returning users |
 | Device Activity | Active devices, Inactive devices     |
 
-We also accounted for Simpson’s Paradox, where aggregate trends can reverse when analyzed by subgroups. For example, if new players retained better in Gate-40 but older players dominated Gate-30, aggregate data might falsely suggest Gate-30 was superior. To mitigate this, we monitored both overall and subgroup KPIs.
+I also accounted for Simpson’s Paradox, where aggregate trends can reverse when analyzed by subgroups. For example, if new players retained better in Gate-40 but older players dominated Gate-30, aggregate data might falsely suggest Gate-30 was superior. To mitigate this, we monitored both overall and subgroup KPIs.
 
 Table 3. Experimental Design
 | **Group**   | **Gate Position** | **Players (N)** |  
@@ -168,8 +168,8 @@ As shown above, the bootstrap distributions for Version A (gate_30) and Version 
 <img width="1087" height="448" alt="image" src="https://github.com/user-attachments/assets/475e12f9-65cb-4c4a-b0c4-f8f878d7c755" />
 </p> <p align="center"><b>Figure 3.</b> Bootstrapped differences in retention rates (Day-1 left, Day-7 right). Red dashed lines show 95% confidence intervals.</p>
 
-Day-1 Retention: 95% CI = [-0.002, 0.012] → not significant (includes 0).
-Day-7 Retention: 95% CI = [0.008, 0.022] → significant drop in Gate-40 group.
+- Day-1 Retention: 95% CI = [-0.002, 0.012] → not significant (includes 0).
+- Day-7 Retention: 95% CI = [0.008, 0.022] → significant drop in Gate-40 group.
 
 ### Key Findings  
 - Delaying gate to Level 40 ❌ did not improve engagement.  
@@ -187,7 +187,7 @@ Day-7 Retention: 95% CI = [0.008, 0.022] → significant drop in Gate-40 group.
 ✅ Keep Level-30 → better long-term stickiness and player value.  
 
 ## 5. Next Steps
-- Subgroup deep dive: Explore retention by new vs. experienced users.
+- Subgroup deep investigation: Explore retention by new vs. experienced users.
 - Monetization analysis: Examine IAP behavior around Gate-30 to refine balancing.
 - Future experiments: Test softer alternatives (e.g., reduced wait time, optional ads) to optimize both retention and revenue.
 
