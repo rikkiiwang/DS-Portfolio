@@ -165,7 +165,7 @@ To validate the robustness of these findings, I performed a bootstrap analysis (
 As shown above, the bootstrap distributions for Version A (gate_30) and Version B (gate_40) are clearly separated, confirming that differences in both Day-1 and Day-7 retention were statistically robust.
 
 <p align="center">
-<img width="1087" height="448" alt="image" src="https://github.com/user-attachments/assets/475e12f9-65cb-4c4a-b0c4-f8f878d7c755" />
+<img width="787" height="300" alt="image" src="https://github.com/user-attachments/assets/475e12f9-65cb-4c4a-b0c4-f8f878d7c755" />
 </p> <p align="center"><b>Figure 3.</b> Bootstrapped differences in retention rates (Day-1 left, Day-7 right). Red dashed lines show 95% confidence intervals.</p>
 
 - Day-1 Retention: 95% CI = [-0.002, 0.012] → not significant (includes 0).
