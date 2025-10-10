@@ -33,7 +33,7 @@ These projects were done independently to explore new tools and techniques in ma
 |---------|-------|----------------|-----------|
 | [Multimodal Retrieval System](projects/multimodal-search/README.md) | Dual-tower CNN + Transformer for cross-modal search | FAISS, Triton, PyTorch | Synthetic demo |
 | [RAG with LlamaIndex](projects/rag-pipeline/README.md) | RAG pipeline with Cohere re-rankers | LlamaIndex, Vector DB, Cohere API | Demo |
-| [A/B Testing Framework](projects/ab-testing/README.md) | User engagement optimization with robust experiment design | Python, SQL, Causal inference | Simulated |
+| [A/B Testing Framework](projects/ab_testing/README.md) | User engagement optimization with robust experiment design | Python, SQL, Causal inference | Simulated |
 | [Movie Recommender Systems](projects/recommender-systems/README.md) | DeepFM & LightGCN for large-scale movie data | PyTorch, Spark, Pandas | Amazon dataset |
 
 ---
